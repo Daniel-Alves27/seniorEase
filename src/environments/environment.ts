@@ -2,12 +2,12 @@ export const environment = {
   production: false,
 
   firebase: {
-    apiKey: 'SUA_API_KEY',
-    authDomain: 'SEU_PROJETO.firebaseapp.com',
-    databaseURL: 'https://SEU_PROJETO-default-rtdb.firebaseio.com',
-    projectId: 'SEU_PROJECT_ID',
-    storageBucket: 'SEU_PROJETO.firebasestorage.app',
-    messagingSenderId: 'SEU_MESSAGING_SENDER_ID',
-    appId: 'SEU_APP_ID'
+    apiKey: "AIzaSyBzQf_i4O-lrabAalBXqwCjhO4jz-UsACk",
+    authDomain: "seniorease-e68b5.firebaseapp.com",
+    databaseURL: "https://seniorease-e68b5-default-rtdb.firebaseio.com",
+    projectId: "seniorease-e68b5",
+    storageBucket: "seniorease-e68b5.firebasestorage.app",
+    messagingSenderId: "243498482841",
+    appId: "1:243498482841:web:31e5f95081b5de6232cc08"
   }
 };
