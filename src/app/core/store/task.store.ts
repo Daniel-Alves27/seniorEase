@@ -13,16 +13,8 @@ import { TaskSort } from '../types/task-sort.type';
 })
 export class TaskStore {
 
-  /**
-   * Lista de tarefas
-   */
   readonly tasks = signal<Task[]>([]);
-
   readonly search = signal('');
-
-  /**
-   * Loading
-   */
   readonly loading = signal(false);
   readonly filter = signal<TaskFilter>('all');
   readonly sort = signal<TaskSort>('date');
@@ -30,8 +22,6 @@ export class TaskStore {
   readonly filteredTasks = computed(() => {
 
   let tasks = [...this.tasks()];
-
-  // ---------- FILTRO ----------
 
   switch (this.filter()) {
     case 'pending':
@@ -43,8 +33,6 @@ export class TaskStore {
       break;
 
   }
-
-  // ---------- BUSCA ----------
 
   const search = this.search().trim().toLowerCase();
 
@@ -65,8 +53,6 @@ export class TaskStore {
     );
 
   }
-
-  // ---------- ORDENAÇÃO ----------
 
   switch (this.sort()) {
 
@@ -108,40 +94,24 @@ export class TaskStore {
   return tasks;
   });
 
-  /**
-   * Total de tarefas
-   */
   readonly total = computed(() => this.tasks().length);
 
-  /**
-   * Tarefas concluídas
-   */
   readonly completed = computed(() =>
     this.tasks().filter(task => task.completed)
   );
 
-  /**
-   * Quantidade concluída
-   */
   readonly completedCount = computed(() =>
     this.completed().length
   );
 
-  /**
-   * Tarefas pendentes
-   */
   readonly pending = computed(() =>
     this.tasks().filter(task => !task.completed)
   );
 
-  /**
-   * Quantidade pendente
-   */
   readonly pendingCount = computed(() =>
     this.pending().length
   );
 
-  // Barra de Progresso
   readonly progress = computed(() => {
 
     const total = this.total();
@@ -156,9 +126,6 @@ export class TaskStore {
 
   });
 
-  /**
-   * Atualiza todas as tarefas
-   */
   setTasks(tasks: Task[]) {
     this.tasks.set(tasks);
   }
@@ -175,16 +142,10 @@ export class TaskStore {
     this.sort.set(sort);
   }
 
-  /**
-   * Adiciona uma tarefa
-   */
   addTask(task: Task) {
     this.tasks.update(tasks => [...tasks, task]);
   }
 
-  /**
-   * Atualiza uma tarefa
-   */
   updateTask(task: Task) {
 
     this.tasks.update(tasks =>
@@ -197,9 +158,6 @@ export class TaskStore {
 
   }
 
-  /**
-   * Remove uma tarefa
-   */
   removeTask(id: string) {
 
     this.tasks.update(tasks =>
@@ -208,13 +166,8 @@ export class TaskStore {
 
   }
 
-  /**
-   * Limpa tudo
-   */
   clear() {
     this.tasks.set([]);
   }
-
-
 
 }

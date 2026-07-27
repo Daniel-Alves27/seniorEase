@@ -34,10 +34,6 @@ export class TaskService {
   private auth = inject(Auth);
   private historyService = inject(HistoryService);
 
-
-  /**
-   * Escuta as tarefas do usuário em tempo real
-   */
   listenTasks() {
 
     const user = this.authStore.user();
@@ -68,11 +64,6 @@ export class TaskService {
 
   }
 
-  /**
-   * Cria uma tarefa
-   */
-
-
   async createTask(task: Omit<Task, 'id'>) {
 
     this.snackbar.show({
@@ -81,19 +72,6 @@ export class TaskService {
     })
 
     const user = this.authStore.user();
-
-    //const user = this.auth.currentUser;
-
-    //console.log(user);
-
-    //const firebaseUser = this.auth.currentUser;
-    /*
-    if (!firebaseUser) {
-
-      throw new Error('Usuário não autenticado.');
-
-    }
-      */
 
     if (!user) return;
 
@@ -128,9 +106,6 @@ export class TaskService {
 
   }
 
-  /**
-   * Atualiza uma tarefa
-   */
   async updateTask(task: Task) {
 
     const user = this.authStore.user();
@@ -152,9 +127,6 @@ export class TaskService {
 
   }
 
-  /**
-   * Remove uma tarefa
-   */
   async deleteTask(task: Task) {
 
     const user = this.authStore.user();
@@ -174,9 +146,6 @@ export class TaskService {
     );
   }
 
-  /**
-   * Alterna o status de conclusão de uma tarefa
-   */
   async toggleCompleted(
     task: Task
   ): Promise<void> {
