@@ -1,0 +1,9 @@
+@if (historyStore.history().length) {
+  <div class="grid gap-2">
+    @for (item of historyStore.history(); track item.id) {
+      <app-history-item [history]="item"> </app-history-item>
+    }
+  </div>
+} @else {
+  <p class="text-center text-white font-bold">Nenhuma atividade encontrada.</p>
+}

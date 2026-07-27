@@ -1,0 +1,39 @@
+<app-card>
+  <div card-content>
+    <div class="flex items-start gap-4">
+      <div class="text-3xl">
+        @switch (history().type) {
+          @case ('create') {
+            ➕
+          }
+
+          @case ('update') {
+            ✏️
+          }
+
+          @case ('delete') {
+            🗑️
+          }
+
+          @case ('complete') {
+            ✅
+          }
+
+          @case ('profile') {
+            👤
+          }
+        }
+      </div>
+
+      <div class="flex-1">
+        <h2 class="font-semibold pb-1 ">
+          {{ history().title }}
+        </h2>
+
+        <p class="text-sm text-slate-500">
+          {{ history().createdAt | date: 'dd/MM/yyyy HH:mm' }}
+        </p>
+      </div>
+    </div>
+  </div>
+</app-card>
