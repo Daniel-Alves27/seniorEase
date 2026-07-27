@@ -29,16 +29,9 @@ export class AuthService {
   private taskService = inject(TaskService);
   private settingsService = inject(SettingsService);
 
-  /**
-   * Observable com o usuário autenticado.
-   * Sempre que o usuário entrar ou sair,
-   * esse Observable será atualizado.
-   */
   user$: Observable<User | null> = authState(this.auth);
 
-  /**
-   * Cadastro
-   */
+  
   async register(
     name: string,
     email: string,
@@ -51,7 +44,7 @@ export class AuthService {
       password
     );
 
-    // Atualiza o nome do usuário no Authentication
+    
     await updateProfile(credential.user, {
       displayName: name
     });
@@ -66,9 +59,6 @@ export class AuthService {
     return credential.user;
   }
 
-  /**
-   * Login
-   */
   async login(
     email: string,
     password: string
@@ -95,9 +85,6 @@ console.log('CurrentUser:', this.auth.currentUser);
     return credential.user;
   }
 
-  /**
-   * Recuperação de senha
-   */
   async forgotPassword(email: string) {
 
     await sendPasswordResetEmail(
@@ -107,9 +94,6 @@ console.log('CurrentUser:', this.auth.currentUser);
 
   }
 
-  /**
-   * Logout
-   */
   async logout() {
 
     await signOut(this.auth);
