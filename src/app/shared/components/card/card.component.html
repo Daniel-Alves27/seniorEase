@@ -1,0 +1,19 @@
+<div
+  [ngClass]="[
+    cardClass(),
+  ]"
+  class="app-card"
+>
+
+  <div class="mb-6">
+    <ng-content select="[card-header]"></ng-content>
+  </div>
+
+  <div>
+    <ng-content select="[card-content]"></ng-content>
+  </div>
+
+  <div class="mt-6">
+    <ng-content select="[card-footer]"></ng-content>
+  </div>
+</div>

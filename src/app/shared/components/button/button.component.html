@@ -1,0 +1,20 @@
+<button
+  [type]="type()"
+  [disabled]="disabled() || loading()"
+  [class]="buttonClass()"
+  class="button"
+>
+
+  @if (loading()) {
+
+    <span class="animate-pulse">
+      Carregando...
+    </span>
+
+  } @else {
+
+    {{ label() }}
+
+  }
+
+</button>

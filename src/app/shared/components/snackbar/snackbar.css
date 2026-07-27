@@ -1,0 +1,7 @@
+:host{
+  display:block;
+}
+
+.snackbar{
+  border-radius: var(--radius-md);
+}

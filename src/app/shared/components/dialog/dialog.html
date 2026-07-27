@@ -1,0 +1,17 @@
+@if (opened()) {
+  <div class="dialog-backdrop" (click)="closed.emit()">
+    <div class="dialog" (click)="$event.stopPropagation()">
+      <div class="dialog-header">
+        <h2>
+          {{ title() }}
+        </h2>
+
+        <button class="dialog-close" (click)="closed.emit()">✕</button>
+      </div>
+
+      <div class="dialog-content">
+        <ng-content />
+      </div>
+    </div>
+  </div>
+}
