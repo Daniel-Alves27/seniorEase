@@ -1,0 +1,61 @@
+<app-card>
+  <div card-header class="flex gap-1">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="34"
+      height="34"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#000000"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-chart-no-axes-combined-icon lucide-chart-no-axes-combined"
+    >
+      <path d="M12 16v5" />
+      <path d="M16 14.639V21" />
+      <path d="M20 10.656V21" />
+      <path d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15" />
+      <path d="M4 18.463V21" />
+      <path d="M8 14.656V21" />
+    </svg>
+    <h2 class="text-2xl font-bold">Estatísticas por categoria</h2>
+  </div>
+
+  <div card-content class="space-y-4">
+    @for (category of statistics.tasksByCategory(); track category.label) {
+      <div>
+        <div class="mb-2 flex justify-between">
+          <div class="flex gap-1 items-center">
+            <img [src]="category.icon" alt="" />
+            <span>
+              {{ category.label }}
+            </span>
+          </div>
+
+          <strong>
+            {{ category.value }}
+          </strong>
+        </div>
+
+        <div class="flex gap-1 pb-1">
+          <p class="text-lg">Categoria mais utilizada:</p>
+          <img [src]="statistics.favoriteCategory().icon" alt="" />
+        </div>
+
+        <div class="pb-1">
+          <strong>
+            {{ statistics.favoriteCategory().label }}
+          </strong>
+        </div>
+
+        <div class="h-3 overflow-hidden rounded-full bg-slate-200">
+          <div
+            class="h-full rounded-full bg-blue-600 transition-all duration-500"
+            [style.width.%]="(category.value / statistics.maxCategoryValue()) * 100"
+          ></div>
+        </div>
+      </div>
+    }
+  </div>
+</app-card>

@@ -1,0 +1,7 @@
+:host {
+  display: block;
+}
+
+.dashboard-bg {
+  background-image: url('/images/bgAuth.png');
+}
