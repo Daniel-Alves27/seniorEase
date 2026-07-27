@@ -14,7 +14,6 @@ import {
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
-import { firebaseConfig } from '../app/core/firebase/firebase.config'
 import { routes } from './app.routes';
 
 import { LOCALE_ID } from '@angular/core';
