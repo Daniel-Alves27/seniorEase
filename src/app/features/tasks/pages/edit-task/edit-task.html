@@ -1,0 +1,9 @@
+@if (task()) {
+  <div class="task-edit-bg mx-auto p-6">
+    <app-task-form [task]="task()" (save)="save($event)"> </app-task-form>
+  </div>
+} @else {
+  <div class="p-10 text-center">
+    <h2 class="text-2xl font-bold">Tarefa não encontrada.</h2>
+  </div>
+}

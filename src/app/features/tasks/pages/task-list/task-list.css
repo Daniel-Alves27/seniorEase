@@ -1,0 +1,7 @@
+:host{
+  display:block;
+}
+
+.task-bg {
+  background-image: url('/images/bgAuth.png');
+}

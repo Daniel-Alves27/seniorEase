@@ -1,0 +1,98 @@
+<div class="task-bg bg-red-400">
+  <div class="mx-auto max-w-5xl p-4 bg-white">
+    <div class="mb-6">
+      <button
+        type="button"
+        class="flex items-center gap-2 text-blue-600 hover:text-blue-700"
+        (click)="goBack()"
+      >
+        ← Voltar ao Dashboard
+      </button>
+    </div>
+
+    <div class="mb-3 flex items-center justify-between">
+      <h1 class="text-3xl font-bold">Minhas tarefas</h1>
+
+      <app-button label="➕ Nova tarefa" (click)="newTask()"> ➕ Nova tarefa </app-button>
+    </div>
+
+    <div class="mb-4">
+      <input
+        type="text"
+        placeholder="🔎 Pesquisar tarefa..."
+        class="w-full rounded-xl border py-1.5 px-1 text-lg"
+        #search
+        (input)="taskStore.setSearch(search.value)"
+      />
+    </div>
+
+    <button
+      class="rounded-xl border px-4 py-2 mb-2"
+      [class.bg-blue-600]="taskStore.filter() === 'completed'"
+      [class.text-white]="taskStore.filter() === 'completed'"
+      (click)="taskStore.setFilter('completed')"
+    >
+      Concluídas
+    </button>
+
+    <div class="mb-8">
+      <h3 class="mb-1 text-lg font-semibold">Ordenar por</h3>
+
+      <div class="flex flex-wrap gap-3">
+        <button
+          class="rounded-xl border px-5 py-2"
+          [class.bg-blue-600]="taskStore.sort() === 'date'"
+          [class.text-white]="taskStore.sort() === 'date'"
+          (click)="taskStore.setSort('date')"
+        >
+          📅 Data
+        </button>
+
+        <button
+          class="rounded-xl border px-5 py-2"
+          [class.bg-blue-600]="taskStore.sort() === 'priority'"
+          [class.text-white]="taskStore.sort() === 'priority'"
+          (click)="taskStore.setSort('priority')"
+        >
+          🔴 Prioridade
+        </button>
+
+        <button
+          class="rounded-xl border px-5 py-2"
+          [class.bg-blue-600]="taskStore.sort() === 'title'"
+          [class.text-white]="taskStore.sort() === 'title'"
+          (click)="taskStore.setSort('title')"
+        >
+          🔤 Nome
+        </button>
+      </div>
+    </div>
+
+    @if (taskStore.tasks().length === 0) {
+      <div class="rounded-2xl border border-dashed p-10 text-center">
+        <p class="text-xl">Você ainda não possui tarefas.</p>
+
+        <p class="mt-2 text-slate-500">Clique em "Nova tarefa" para começar.</p>
+      </div>
+    } @else {
+      <div class="space-y-3">
+        @for (task of taskStore.filteredTasks(); track task.id) {
+          <app-task-item
+            [task]="task"
+            (complete)="complete(task.id)"
+            (edit)="edit(task.id)"
+            (remove)="remove(task.id)"
+          >
+          </app-task-item>
+        }
+      </div>
+    }
+
+    <app-delete-task-dialog
+      [opened]="dialogOpened"
+      (cancel)="closeDialog()"
+      (confirm)="confirmDelete()"
+    >
+    </app-delete-task-dialog>
+  </div>
+</div>

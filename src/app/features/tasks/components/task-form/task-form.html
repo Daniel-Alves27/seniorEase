@@ -1,0 +1,144 @@
+<app-card>
+  <div card-header class="flex justify-between">
+    <h2 class="text-2xl font-bold">Nova tarefa</h2>
+
+    <button type="button" class="text-2xl text-slate-500 hover:text-slate-700 cursor-pointer" (click)="closed()">
+      ✕
+    </button>
+  </div>
+
+  <div card-content>
+    <form [formGroup]="form" (ngSubmit)="submit()" class="space-y-3">
+
+      <app-input label="Título" placeholder="Ex.: Tomar remédio" formControlName="title">
+      </app-input>
+
+      <app-input label="Descrição" placeholder="Opcional" formControlName="description">
+      </app-input>
+
+      <app-input type="date" label="Data" formControlName="dueDate"> </app-input>
+
+      <div>
+        <label class="mb-2 block text-lg font-semibold"> Categoria </label>
+
+        <div class="grid grid-cols-2 gap-2">
+          <button
+            type="button"
+            class="rounded-xl border py-1 px-3"
+            [class.bg-blue-100]="form.value.category === 'health'"
+            (click)="form.controls.category.setValue('health')"
+          >
+            Saúde
+          </button>
+
+          <button
+            type="button"
+            class="rounded-xl border py-1 px-3"
+            [class.bg-blue-100]="form.value.category === 'study'"
+            (click)="form.controls.category.setValue('study')"
+          >
+            Estudos
+          </button>
+
+          <button
+            type="button"
+            class="rounded-xl border py-1 px-3"
+            [class.bg-blue-100]="form.value.category === 'work'"
+            (click)="form.controls.category.setValue('work')"
+          >
+            Trabalho
+          </button>
+
+          <button
+            type="button"
+            class="rounded-xl border py-1 px-3"
+            [class.bg-blue-100]="form.value.category === 'personal'"
+            (click)="form.controls.category.setValue('personal')"
+          >
+             Pessoal
+          </button>
+        </div>
+      </div>
+
+
+      <div>
+        <label class="mb-1 block text-lg font-semibold"> Prioridade </label>
+
+        <div class="grid grid-cols-3 gap-2">
+          <button
+            type="button"
+            class="rounded-xl border py-1 px-3"
+            [class.bg-green-100]="form.value.priority === 'low'"
+            (click)="form.controls.priority.setValue('low')"
+          >
+            🟢 Baixa
+          </button>
+
+          <button
+            type="button"
+            class="rounded-xl border py-1 px-3"
+            [class.bg-yellow-100]="form.value.priority === 'medium'"
+            (click)="form.controls.priority.setValue('medium')"
+          >
+            🟡 Média
+          </button>
+
+          <button
+            type="button"
+            class="rounded-xl border py-1 px-3"
+            [class.bg-red-100]="form.value.priority === 'high'"
+            (click)="form.controls.priority.setValue('high')"
+          >
+            🔴 Alta
+          </button>
+        </div>
+      </div>
+
+      <div class="flex justify-center gap-4">
+        <app-button label="Cancelar" variant="secondary" (click)="closed()"> </app-button>
+
+        <app-button label="Criar tarefa" type="submit"> </app-button>
+      </div>
+    </form>
+  </div>
+</app-card>
+<!--
+<div class="grid gap-5 w-100  bg-white rounded-2xl fixed top-10 left-1/2 -translate-x-1/2 z-10 border-2 border-red-400">
+  <h2 class="font-semibold text-lg pt-2 ps-4">Adicionar nova tarefa</h2>
+  <form  class="grid px-4">
+    <div class="flex flex-col gap-3">
+      <label for="title" class="font-bold text-lg">titulo</label>
+      <input
+        type="text"
+        name="title"
+
+        id="title"
+        class="w-full h-12 border border-gray-400 rounded ps-2"
+      />
+
+      <label for="description" class="font-bold text-lg">descrição</label>
+      <textarea
+        name="description"
+
+        id="description"
+        class="w-full h-25 border border-gray-400 rounded ps-2 resize-none"
+      ></textarea>
+    </div>
+
+    <div class="my-5">
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" name="date" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="flex justify-center gap-2 pb-5">
+      <button type="submit" class="bg-red-400 px-7 py-2 rounded text-white font-semibold cursor-pointer hover:bg-red-300">salvar</button>
+      <button class="bg-red-400 px-7 py-2 rounded text-white font-semibold cursor-pointer hover:bg-red-300">cancelar</button>
+    </div>
+  </form>
+</div>
+-->
