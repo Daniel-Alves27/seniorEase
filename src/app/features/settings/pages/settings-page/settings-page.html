@@ -1,0 +1,141 @@
+<div class="setting-bg mx-auto space-y-2 py-2 px-12">
+  <div>
+    <button
+      type="button"
+      class="flex items-center text-white bg-blue-500 py-1 px-2 rounded"
+      (click)="goBack()"
+    >
+      Voltar ao Dashboard
+    </button>
+  </div>
+  <div>
+    <h1 class="text-3xl font-bold">Configurações</h1>
+
+    <p class="mt-2 text-slate-600">Ajuste a experiência para ficar mais confortável para você.</p>
+  </div>
+
+  <app-card>
+    <div card-content class="space-y-3">
+      <div>
+        <h2 class="text-2xl font-bold pb-1">Tamanho da fonte</h2>
+
+        <p class="text-slate-600">Escolha um tamanho de texto confortável para leitura.</p>
+      </div>
+
+      <div class="grid gap-3 sm:grid-cols-3">
+        <app-button
+          label="Pequena"
+          [variant]="settings().fontSize === 'small' ? 'primary' : 'outline'"
+          (click)="updateFontSize('small')"
+        >
+        </app-button>
+
+        <app-button
+          label="Média"
+          [variant]="settings().fontSize === 'medium' ? 'primary' : 'outline'"
+          (click)="updateFontSize('medium')"
+        >
+        </app-button>
+
+        <app-button
+          label="Grande"
+          [variant]="settings().fontSize === 'large' ? 'primary' : 'outline'"
+          (click)="updateFontSize('large')"
+        >
+        </app-button>
+      </div>
+    </div>
+  </app-card>
+
+  <app-card>
+    <div card-content class="space-y-3">
+      <div>
+        <h2 class="text-2xl font-bold pb-1">Contraste</h2>
+
+        <p class="text-slate-600">Aumente o contraste para facilitar a leitura.</p>
+      </div>
+
+      <div class="grid gap-3 sm:grid-cols-2">
+        <app-button
+          label="Normal"
+          [variant]="settings().contrast === 'normal' ? 'primary' : 'outline'"
+          (click)="updateContrast('normal')"
+        >
+        </app-button>
+
+        <app-button
+          label="Alto contraste"
+          [variant]="settings().contrast === 'high' ? 'primary' : 'outline'"
+          (click)="updateContrast('high')"
+        >
+        </app-button>
+      </div>
+    </div>
+  </app-card>
+
+  <app-card>
+    <div card-content class="space-y-3">
+      <div>
+        <h2 class="text-2xl font-bold pb-1">Espaçamento</h2>
+
+        <p class="text-slate-600">Aumente o espaço entre os elementos para facilitar o toque.</p>
+      </div>
+
+      <div class="grid gap-3 sm:grid-cols-2">
+        <app-button
+          label="Normal"
+          [variant]="settings().spacing === 'normal' ? 'primary' : 'outline'"
+          (click)="updateSpacing('normal')"
+        >
+        </app-button>
+
+        <app-button
+          label="Grande"
+          [variant]="settings().spacing === 'large' ? 'primary' : 'outline'"
+          (click)="updateSpacing('large')"
+        >
+        </app-button>
+      </div>
+    </div>
+  </app-card>
+
+  <app-card>
+    <div card-content class="space-y-3">
+      <div>
+        <h2 class="text-2xl font-bold pb-1">Confirmações extras</h2>
+
+        <p class="text-slate-600">
+          Peça confirmação antes de ações importantes, como excluir uma tarefa.
+        </p>
+      </div>
+
+      <app-button
+        [label]="settings().confirmations ? 'Confirmações ativadas' : 'Confirmações desativadas'"
+        [variant]="settings().confirmations ? 'success' : 'outline'"
+        (click)="updateConfirmations(!settings().confirmations)"
+      >
+      </app-button>
+    </div>
+  </app-card>
+
+  <app-card>
+    <div card-content class="space-y-3">
+      <div>
+        <h2 class="text-2xl font-bold pb-1">Feedback visual</h2>
+
+        <p class="text-slate-600">
+          Destaque visualmente as ações concluídas e mensagens importantes.
+        </p>
+      </div>
+
+      <app-button
+        [label]="
+          settings().visualFeedback ? 'Feedback visual ativado' : 'Feedback visual desativado'
+        "
+        [variant]="settings().visualFeedback ? 'success' : 'outline'"
+        (click)="updateVisualFeedback(!settings().visualFeedback)"
+      >
+      </app-button>
+    </div>
+  </app-card>
+</div>

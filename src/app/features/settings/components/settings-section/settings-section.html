@@ -1,0 +1,19 @@
+<app-card>
+  <div card-content>
+    <div class="space-y-4">
+      <div>
+        <h2 class="text-xl font-semibold">
+          {{ title() }}
+        </h2>
+
+        @if (description()) {
+          <p class="text-slate-600">
+            {{ description() }}
+          </p>
+        }
+      </div>
+
+      <ng-content />
+    </div>
+  </div>
+</app-card>

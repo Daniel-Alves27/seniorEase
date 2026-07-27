@@ -1,0 +1,15 @@
+<label
+  class="flex cursor-pointer items-center gap-3 rounded-xl border p-4 transition hover:bg-slate-50"
+>
+  <input
+    type="radio"
+    class="h-5 w-5"
+    [value]="value()"
+    [checked]="currentValue() === value()"
+    (change)="changed.emit(value())"
+  />
+
+  <span class="text-lg">
+    {{ label() }}
+  </span>
+</label>

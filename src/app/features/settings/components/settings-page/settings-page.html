@@ -1,0 +1,46 @@
+<div class="mx-auto max-w-5xl p-6 space-y-6">
+  <app-settings-header />
+
+  <app-settings-section
+    title="Tamanho da fonte"
+    description="Escolha um tamanho confortável para leitura."
+  >
+    <div class="space-y-3">
+      <app-radio-option
+        label="Pequena"
+        value="small"
+        [currentValue]="settingsStore.fontSize()"
+        (changed)="changeFontSize($event)"
+      >
+      </app-radio-option>
+
+      <app-radio-option
+        label="Média"
+        value="medium"
+        [currentValue]="settingsStore.fontSize()"
+        (changed)="changeFontSize($event)"
+      >
+      </app-radio-option>
+
+      <app-radio-option
+        label="Grande"
+        value="large"
+        [currentValue]="settingsStore.fontSize()"
+        (changed)="changeFontSize($event)"
+      >
+      </app-radio-option>
+    </div>
+  </app-settings-section>
+
+  <app-settings-section title="Contraste" description="Melhore a visibilidade dos elementos.">
+    <p>Em breve...</p>
+  </app-settings-section>
+
+  <app-settings-section title="Espaçamento" description="Aumente o espaço entre os elementos.">
+    <p>Em breve...</p>
+  </app-settings-section>
+
+  <app-settings-section title="Confirmações" description="Evite ações acidentais.">
+    <p>Em breve...</p>
+  </app-settings-section>
+</div>
