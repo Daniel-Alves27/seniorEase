@@ -1,0 +1,7 @@
+.bg-register {
+  background-image: url('/images/bgAuth.png');
+}
+
+:host {
+  display: block;
+}

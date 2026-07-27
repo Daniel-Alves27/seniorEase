@@ -1,0 +1,49 @@
+<div class="bg-login min-h-screen flex items-center justify-center bg-red-400 p-6">
+  <div class="w-full max-w-md">
+    <app-card>
+      <div card-header>
+        <h1 class="text-3xl font-bold text-center">SeniorEase</h1>
+
+        <p class="text-center text-gray-500">Entre na sua conta</p>
+      </div>
+
+      <div card-content>
+        <form [formGroup]="loginForm" (ngSubmit)="submit()" class="flex flex-col gap-4">
+          <app-input
+            label="Email"
+            type="email"
+            placeholder="Digite seu email"
+            formControlName="email"
+          >
+          </app-input>
+
+          <app-input
+            label="Senha"
+            type="password"
+            placeholder="Digite sua senha"
+            formControlName="password"
+          >
+          </app-input>
+
+          @if (errorMessage()) {
+            <p class="text-red-600 text-center">
+              {{ errorMessage() }}
+            </p>
+          }
+
+          <app-button label="Entrar" type="submit" [loading]="loading()"> </app-button>
+        </form>
+      </div>
+
+      <div card-footer>
+        <div class="flex justify-between text-sm">
+          <a routerLink="/register" class="text-blue-600 hover:underline"> Criar conta </a>
+
+          <a routerLink="/forgot-password" class="text-blue-600 hover:underline">
+            Esqueci minha senha
+          </a>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>

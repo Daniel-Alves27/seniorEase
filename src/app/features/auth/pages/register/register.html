@@ -1,0 +1,82 @@
+<div class="bg-register min-h-screen flex items-center justify-center bg-red-400 p-6">
+  <div class="w-full max-w-md">
+    <app-card>
+      <div card-header>
+        <h1 class="text-3xl font-bold text-center">SeniorEase</h1>
+
+        <p class="text-center text-gray-500 mt-2">Crie sua conta</p>
+      </div>
+
+      <div card-content>
+        <form [formGroup]="registerForm" (ngSubmit)="submit()" class="flex flex-col gap-4">
+          <app-input label="Nome" placeholder="Digite seu nome" formControlName="name"> </app-input>
+
+          <app-input
+            label="Email"
+            placeholder="Digite seu email"
+            type="email"
+            formControlName="email"
+          >
+          </app-input>
+
+          <app-input
+            label="Senha"
+            type="password"
+            placeholder="Digite sua senha"
+            formControlName="password"
+          >
+          </app-input>
+
+          @if (errorMessage()) {
+            <div class="text-red-600 text-sm text-center">
+              {{ errorMessage() }}
+            </div>
+          }
+
+          <app-button label="Criar conta" type="submit" [loading]="loading()"> </app-button>
+        </form>
+      </div>
+    </app-card>
+  </div>
+</div>
+
+<!--
+ <form class="grid gap-7 bg-white w-90  mx-auto py-5 px-4 rounded-lg">
+    <h2 class="font-bold text-4xl">Cadastro</h2>
+
+     <div>
+      <label class="font-semibold text-lg" for="nome">Nome</label>
+      <input
+        class="w-full h-14 border border-gray-400 rounded ps-2"
+        type="text"
+        name=""
+        id="nome"
+        placeholder="Digite seu nome"
+      />
+    </div>
+    <div>
+      <label class="font-semibold text-lg" for="email">Email</label>
+      <input
+        class="w-full h-14 border border-gray-400 rounded ps-2"
+        type="email"
+        name=""
+        id="email"
+        placeholder="Exemplo@email.com"
+      />
+    </div>
+    <div>
+      <label class="font-semibold text-lg" for="password">Crie uma senha</label>
+      <input
+        class="w-full h-14 border border-gray-400 rounded ps-2"
+        type="password"
+        name=""
+        id="password"
+        placeholder="Ex: 123456"
+      />
+    </div>
+    <div class="flex flex-col gap-4">
+      <button class="bg-red-400 rounded h-10 font-semibold text-white text-lg">Criar conta</button>
+      <button class="rounded border border-red-400 h-10 font-semibold text-red-400 text-lg">Já tenho conta</button>
+    </div>
+  </form>
+  -->
