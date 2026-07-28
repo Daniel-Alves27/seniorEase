@@ -1,59 +1,98 @@
-# SeniorEase
+# Hackathon — SeniorEase
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.14.
+O **SeniorEase** é uma plataforma desenvolvida como parte do **hackathon**, com o objetivo de promover a inclusão digital de pessoas idosas por meio de uma interface simples, intuitiva e acessível.
 
-## Development server
+A aplicação utiliza **Angular** e **Firebase** para oferecer autenticação de usuários, armazenamento de dados em tempo real e uma experiência moderna e responsiva.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## 🚀 Tecnologias utilizadas
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Angular 21** — Framework para desenvolvimento da aplicação.
+- **Tailwind CSS** — Estilização rápida utilizando classes utilitárias.
+- **Firebase Authentication** — Autenticação de usuários.
+- **Realtime Database** — Banco de dados em tempo real.
+- **AngularFire** — Integração entre Angular e Firebase.
+- **RxJS** — Programação reativa.
+- **TypeScript** — Linguagem principal da aplicação.
+- **Vitest** — Testes da aplicação.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## ✨ Funcionalidades
 
-```bash
-ng generate component component-name
-```
+- 👤 Cadastro de usuários
+- 🔐 Login com autenticação via Firebase
+- ☁️ Armazenamento de dados em tempo real
+- ♿ Interface desenvolvida com foco em acessibilidade para pessoas idosas
+- 🎨 Design moderno utilizando Tailwind CSS
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 🖥️ Como rodar o projeto
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+### 1️⃣ Clonar o repositório
 
 ```bash
-ng test
+git clone https://github.com/Daniel-Alves27/seniorEase.git
+cd seniorEase
 ```
 
-## Running end-to-end tests
+### 2️⃣ Instalar as dependências
 
-For end-to-end (e2e) testing, run:
+Com **Yarn**:
 
 ```bash
-ng e2e
+yarn install
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Ou com **npm**:
 
-## Additional Resources
+```bash
+npm install
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### 3️⃣ Rodar o projeto
+
+Com **Yarn**:
+
+```bash
+yarn start
+```
+
+Ou com **npm**:
+
+```bash
+npm run start
+```
+
+A aplicação ficará disponível em:
+
+👉 **http://localhost:4200**
+
+---
+
+## 🔥 Informações de Login
+
+email: daniel@email.com
+senha: 123456
+
+---
+
+## 💡 Sobre o projeto
+
+O **SeniorEase** foi criado para facilitar o acesso de pessoas idosas às tecnologias digitais, oferecendo uma experiência simples, intuitiva e acessível.
+
+O projeto tem como foco:
+
+- Inclusão digital.
+- Interface amigável e responsiva.
+- Autenticação segura com Firebase.
+- Integração com banco de dados em tempo real.
+- Aplicação das boas práticas de desenvolvimento utilizando Angular.
+
+---
+
+## 🧑‍💻 Autor
+
+**Daniel Alves**
