@@ -74,8 +74,8 @@ A aplicação ficará disponível em:
 
 ## 🔥 Informações de Login
 
-email: daniel@email.com
-senha: 123456
+- email: lucas@email.com
+- senha: 123456
 
 ---
 
